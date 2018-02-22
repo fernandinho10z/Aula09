@@ -1,0 +1,65 @@
+#criar um arquivo que tenha uma classe, com os seguintes metodos:
+# cadastrar_entrega, alterar_entrega, buscar_entrega
+#elas devem ser responsaveis por fazer o cadastro, alteracao e busca de entrega no banco de dados SQL (postgres)
+
+#a tabela deve conter: id da entrega, nome, endereco e produto
+
+#criar um segundo arquivo responsavel pelo menu, ela deve conter as opcoes:
+#1- Cadastrar Entrega
+#2- Alterar endereco de entrega
+#3- Listar entregas
+#4- Sair
+
+import psycopg2
+
+conexao = psycopg2.connect('host=127.0.0.1 dbname=entregas user=adm password=Mudar@123')
+
+cur = conexao.cursor()
+
+class Entrega():
+    
+    def __init__(self):
+        self.conexao = 'Iniciando'
+        self.cur = self.conexao
+
+    def conectado(self):
+        print(self.cur.execute())
+    
+    def menu(self, Entrega):
+        print ('\n1 - Cadastrar Entrega \n2- Alterar Entrega \n3 - Listar Entrega \n4 - Sair')
+        opcao = int(input('Digite uma opcao: '))
+        if opcao == 1:
+            cadastro()
+        elif opcao == 2:
+            altear()
+        elif opcao == 3:
+            listar()
+        elif opcao == 4:
+            sair()
+
+    def cadastro(self, nome, endereco, pedido):
+        nome = input('Cliente: ')
+        endereco = input('Endereco: ')
+        pedido = input('Qual o pedido: ')
+        print ('Cadastrado com sucesso!')
+        self.cur.execute ("insert into entregas(nome, endereco, pedido) values ('%s', '%s', '%s')" %(nome, endereco, pedido))
+
+    def alterar_entrega(self, novo_endereco):
+        novo_endereco = input('Digite seu endereco atualizado: ')
+        novo_endereco = endereco()
+        print ('Seu endereco foi atualizado')
+
+    def listar_entrega (self, list_entrega):
+        list_entrega == cadastro()
+        list_entrega()
+    
+    def sair():
+        return 'Saindo do sistema'
+
+
+
+if __name__ == '__main__':
+    Entrega = 
+    classe.conectado()
+    Entrega()
+   
